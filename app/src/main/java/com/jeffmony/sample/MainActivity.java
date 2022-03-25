@@ -1,9 +1,7 @@
 package com.jeffmony.sample;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -50,23 +48,7 @@ public class MainActivity extends Activity {
         });
 
         mVideoPlayBtn.setOnClickListener(view -> {
-            String videoUrl = mVideoUrlEditText.getText().toString();
-            if (TextUtils.isEmpty(videoUrl)) {
-                Toast.makeText(MainActivity.this, "The video url is empty", Toast.LENGTH_LONG).show();
-            } else {
-                Intent intent = new Intent(MainActivity.this, VideoPlayActivity.class);
-                intent.putExtra("video_url", videoUrl);
-                intent.putExtra("local_proxy_enable", mLocalProxyBox.isChecked());
-                intent.putExtra("use_okttp_enable", mUseOkHttpBox.isChecked());
-                int type;
-                if (mIsExoSelected) {
-                    type = 1;
-                } else {
-                    type = 2;
-                }
-                intent.putExtra("player_type", type);
-                startActivity(intent);
-            }
+            Toast.makeText(MainActivity.this, "暂不支持", Toast.LENGTH_LONG).show();
         });
     }
 }
