@@ -36,6 +36,11 @@ public class StorageUtils {
     public static VideoCacheInfo readVideoCacheInfo(File dir) {
         LogUtils.i(TAG, "readVideoCacheInfo : dir=" + dir.getAbsolutePath());
         File file = new File(dir, INFO_FILE);
+        try {
+            file.createNewFile();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         if (!file.exists()) {
             LogUtils.i(TAG,"readProxyCacheInfo failed, file not exist.");
             return null;
